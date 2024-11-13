@@ -1,0 +1,8 @@
+<div class="image-container" *ngIf="dogImageUrl">
+    <img [src]="dogImageUrl" alt="Random Dog Image" class="dog-image">
+    <p class="caption">Here's a random dog to brighten your day!</p>
+    
+    <!-- Reload Button -->
+    <button class="reload-btn" (click)="reloadImage()">Get New Dog</button>
+  </div>
+  

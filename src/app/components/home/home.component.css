@@ -1,0 +1,48 @@
+/* Container styles */
+.home-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 30px; /* Added more padding for spacious layout */
+    text-align: center;
+    background: linear-gradient(135deg, #012528, #434344); /* Smooth gradient for a sophisticated look */
+    border-radius: 15px; /* Slightly more rounded corners for a soft and elegant finish */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Deeper shadow for a more refined depth */
+    transition: all 0.3s ease-in-out; /* Smooth transition for interactive effect */
+}
+
+/* Header styles */
+.header {
+    margin-top: 40px;
+    color: #fff; /* White for good contrast */
+    text-align: center;
+}
+
+/* Heading styles */
+.header h1 {
+    font-size: 3.5em; /* Increased font size for more impact */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean modern font */
+    font-weight: bold; /* Emphasized boldness */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Deeper text shadow for greater depth */
+    letter-spacing: 1px; /* Slight letter spacing for elegance */
+}
+
+/* Paragraph styles */
+.header p {
+    font-size: 1.4em; /* Larger text for enhanced readability */
+    color: #e0e0e0; /* Softer light grey for a balanced contrast */
+    line-height: 1.8; /* Improved line height for clear readability */
+    font-weight: 300; /* Lighter weight for a more refined look */
+    margin-bottom: 30px; /* Spacing between elements */
+}
+
+/* Hover effect for container */
+.home-container:hover {
+    transform: translateY(-5px); /* Slight lift on hover for a dynamic effect */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Margin adjustment at the bottom */
+.home-container {
+    margin-bottom: 40px; /* More spacing below the container */
+}

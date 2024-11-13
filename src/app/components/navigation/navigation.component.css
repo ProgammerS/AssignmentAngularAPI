@@ -1,0 +1,51 @@
+/* Navbar Styling */
+.navbar {
+    background-color: #2c3e50; /* Darker color for a sleek, modern look */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: sticky;
+    top: 0; /* Stick the navbar to the top */
+    z-index: 100;
+  }
+  
+  /* Navbar Links Styling */
+  .nav-link {
+    color: #ecf0f1; /* Light grey for better contrast */
+    text-decoration: none;
+    font-size: 1.1em;
+    margin: 0 15px; /* Space out the links */
+    padding: 10px 20px;
+    border-radius: 30px; /* Rounded corners for a softer look */
+    transition: background-color 0.3s, transform 0.3s ease-in-out; /* Smooth transition for hover effects */
+  }
+  
+  /* Hover Effect */
+  .nav-link:hover {
+    background-color: #3498db; /* Bright blue for a pop of color */
+    color: white;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+  
+  /* Active Link Styling */
+  .nav-link.router-link-active {
+    background-color: #2980b9; /* Darker blue when active */
+    color: white;
+  }
+  
+  /* Responsive Navbar */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-link {
+      margin: 10px 0;
+      padding: 8px 16px;
+      width: 100%; /* Make the links full width on smaller screens */
+    }
+  }
+  

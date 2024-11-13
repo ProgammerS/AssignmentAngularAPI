@@ -1,0 +1,71 @@
+/* Container for the image */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the image container */
+.image-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Dog image styles */
+.dog-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+/* Hover effect on the dog image */
+.dog-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Caption text */
+.caption {
+    font-size: 1.2rem;
+    color: #777;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* Reload button styling */
+.reload-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+/* Hover effect for the reload button */
+.reload-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Disabled state for the reload button */
+.reload-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}

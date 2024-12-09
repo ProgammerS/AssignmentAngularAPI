@@ -1,8 +1,11 @@
-<div class="image-container" *ngIf="dogImageUrl">
+<div class="gallery-container">
+  <div *ngFor="let dogImageUrl of dogImageUrls" class="image-container">
     <img [src]="dogImageUrl" alt="Random Dog Image" class="dog-image">
-    <p class="caption">Here's a random dog to brighten your day!</p>
-    
-    <!-- Reload Button -->
-    <button class="reload-btn" (click)="reloadImage()">Get New Dog</button>
+    <p class="caption">Here's a cute dog!</p>
   </div>
-  
+</div>
+
+<!-- Reload Button -->
+<div class="reload-btn-container">
+  <button class="explore-button" (click)="reloadImages()">Get New Dogs</button>
+</div>

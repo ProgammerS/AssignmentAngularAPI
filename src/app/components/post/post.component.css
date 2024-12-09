@@ -1,71 +1,124 @@
-/* Container for the image */
-.image-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 450px;
-    margin: 30px auto;
+/* Gallery container to hold all images */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 4 images per row */
+    gap: 40px; /* Increased gap between images */
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    justify-items: center;
+    grid-auto-rows: 250px; /* Ensures consistent row height */
+    overflow: hidden;
+  }
 
-/* Hover effect for the image container */
-.image-container:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-}
-
-/* Dog image styles */
-.dog-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 20px;
-}
-
-/* Hover effect on the dog image */
-.dog-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Caption text */
-.caption {
-    font-size: 1.2rem;
-    color: #777;
-    margin-top: 15px;
-    font-weight: 500;
-}
-
-/* Reload button styling */
-.reload-btn {
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    background-color: #3498db;
+  /* Style the button */
+.explore-button {
+    padding: 20px 40px;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: #232322;
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Soft shadow for normal state */
 }
 
-/* Hover effect for the reload button */
-.reload-btn:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
+/* Hover effect with shadow */
+.explore-button:hover {
+    transform: translateY(-5px);
+    background-color: #185b72;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
 }
 
-/* Disabled state for the reload button */
-.reload-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    transform: none;
+/* Pulse animation with shadow */
+.explore-button:active {
+    animation: pulse 0.5s ease-out;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4); /* Shadow during the pulse effect */
 }
+
+  
+  /* Container for each image */
+  .image-container {
+    position: relative;
+    background-color: #fff; /* Clean background */
+    padding: 10px; /* Padding for inner spacing */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    height: 250px; /* Fixed height for each image container */
+    overflow: hidden; /* Ensures image stays within container */
+    cursor: pointer;
+    display: flex;
+    justify-content: center; /* Centers the image */
+    align-items: center; /* Vertically centers the image */
+    margin-bottom: 20px; /* Add spacing between rows */
+  }
+  
+  /* Add a hover effect for the image container */
+  .image-container:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  }
+  
+  /* Style for the dog image */
+  .dog-image {
+    width: 100%; /* Make the image fill the container width */
+    height: 100%; /* Make the image fill the container height */
+    object-fit: cover; /* Ensure aspect ratio is preserved */
+    border-radius: 8px; /* Rounded corners */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Image hover effect */
+  .dog-image:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    filter: brightness(0.9); /* Dim the image slightly on hover */
+  }
+  
+  /* Caption styling */
+  .caption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    color: rgba(255, 255, 255, 0.9); /* Light caption for contrast */
+    font-weight: 600;
+    line-height: 1.4;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  /* Reload button container */
+  .reload-btn-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  /* Reload button style */
+  .reload-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  /* Button hover effect */
+  .reload-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Button focus effect */
+  .reload-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+  }
+  

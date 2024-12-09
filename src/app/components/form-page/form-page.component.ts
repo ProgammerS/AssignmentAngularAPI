@@ -6,17 +6,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-form-page',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './form-page.component.html',
-  styleUrl: './form-page.component.css'
+  styleUrls: ['./form-page.component.css']
 })
 export class FormPageComponent {
   feedbackForm: FormGroup;
+  submitted = false;  // To track submission state
 
   constructor(private fb: FormBuilder) {
     this.feedbackForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],  // 10-digit phone number
+      rating: [null, [Validators.required, Validators.min(1), Validators.max(5)]],
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
@@ -24,8 +27,9 @@ export class FormPageComponent {
   onSubmit() {
     if (this.feedbackForm.valid) {
       console.log('Form Submitted:', this.feedbackForm.value);
+      this.submitted = true;
       // Optionally reset form or display a success message
-      this.feedbackForm.reset();
+      setTimeout(() => this.feedbackForm.reset(), 3000);  // Reset after 3 seconds
     } else {
       console.log('Form is invalid');
     }
@@ -37,6 +41,14 @@ export class FormPageComponent {
 
   get email() {
     return this.feedbackForm.get('email');
+  }
+
+  get phone() {
+    return this.feedbackForm.get('phone');
+  }
+
+  get rating() {
+    return this.feedbackForm.get('rating');
   }
 
   get message() {

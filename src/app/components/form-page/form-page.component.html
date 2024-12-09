@@ -1,13 +1,11 @@
-<br />
-<br />
 <div class="form-container">
     <h2>Submit Your Feedback</h2>
 
-    <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="form-content">
         <!-- Name Field -->
         <div class="form-group">
             <label for="name">Name</label>
-            <input id="name" type="text" formControlName="name" />
+            <input id="name" type="text" formControlName="name" placeholder="Enter your full name" />
             <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="error">
                 <small *ngIf="name?.errors?.['required']">Name is required.</small>
                 <small *ngIf="name?.errors?.['minlength']">Name must be at least 3 characters.</small>
@@ -17,17 +15,38 @@
         <!-- Email Field -->
         <div class="form-group">
             <label for="email">Email</label>
-            <input id="email" type="email" formControlName="email" />
+            <input id="email" type="email" formControlName="email" placeholder="Enter your email" />
             <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error">
                 <small *ngIf="email?.errors?.['required']">Email is required.</small>
                 <small *ngIf="email?.errors?.['email']">Please enter a valid email address.</small>
             </div>
         </div>
 
+        <!-- Phone Field -->
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" formControlName="phone" placeholder="Enter your phone number" />
+            <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="error">
+                <small *ngIf="phone?.errors?.['required']">Phone is required.</small>
+                <small *ngIf="phone?.errors?.['pattern']">Please enter a valid phone number.</small>
+            </div>
+        </div>
+
+        <!-- Rating Field -->
+        <div class="form-group">
+            <label for="rating">Rating (1-5)</label>
+            <input id="rating" type="number" formControlName="rating" min="1" max="5" placeholder="Rate your experience" />
+            <div *ngIf="rating?.invalid && (rating?.dirty || rating?.touched)" class="error">
+                <small *ngIf="rating?.errors?.['required']">Rating is required.</small>
+                <small *ngIf="rating?.errors?.['min']">Rating must be at least 1.</small>
+                <small *ngIf="rating?.errors?.['max']">Rating must be no more than 5.</small>
+            </div>
+        </div>
+
         <!-- Message Field -->
         <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" formControlName="message"></textarea>
+            <textarea id="message" formControlName="message" placeholder="Enter your message here"></textarea>
             <div *ngIf="message?.invalid && (message?.dirty || message?.touched)" class="error">
                 <small *ngIf="message?.errors?.['required']">Message is required.</small>
                 <small *ngIf="message?.errors?.['minlength']">Message must be at least 10 characters.</small>
@@ -35,6 +54,11 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" [disabled]="feedbackForm.invalid">Submit</button>
+        <button type="submit" [disabled]="feedbackForm.invalid" class="submit-btn">Submit</button>
     </form>
+
+    <!-- Success Message -->
+    <div *ngIf="submitted" class="success-message">
+        <p>Thank you for your feedback! 🐾</p>
+    </div>
 </div>

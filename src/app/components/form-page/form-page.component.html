@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container dark-theme">
     <h2>Submit Your Feedback</h2>
 
     <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="form-content">
@@ -35,7 +35,8 @@
         <!-- Rating Field -->
         <div class="form-group">
             <label for="rating">Rating (1-5)</label>
-            <input id="rating" type="number" formControlName="rating" min="1" max="5" placeholder="Rate your experience" />
+            <input id="rating" type="number" formControlName="rating" min="1" max="5"
+                placeholder="Rate your experience" />
             <div *ngIf="rating?.invalid && (rating?.dirty || rating?.touched)" class="error">
                 <small *ngIf="rating?.errors?.['required']">Rating is required.</small>
                 <small *ngIf="rating?.errors?.['min']">Rating must be at least 1.</small>
@@ -59,6 +60,6 @@
 
     <!-- Success Message -->
     <div *ngIf="submitted" class="success-message">
-        <p>Thank you for your feedback! 🐾</p>
+        <p>Thank you for your feedback! 🐶</p>
     </div>
 </div>

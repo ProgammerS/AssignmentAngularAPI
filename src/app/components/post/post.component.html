@@ -1,6 +1,11 @@
 <div class="gallery-container">
   <div *ngFor="let dogImageUrl of dogImageUrls" class="image-container">
-    <img [src]="dogImageUrl" alt="Random Dog Image" class="dog-image">
+    <img
+      [src]="dogImageUrl"
+      alt="Random Dog Image"
+      class="dog-image"
+      (click)="viewImage(dogImageUrl)"
+    />
     <p class="caption">Here's a cute dog!</p>
   </div>
 </div>
@@ -8,4 +13,13 @@
 <!-- Reload Button -->
 <div class="reload-btn-container">
   <button class="explore-button" (click)="reloadImages()">Get New Dogs</button>
+</div>
+
+<!-- Full-Screen Modal -->
+<div
+  class="modal"
+  *ngIf="selectedImage"
+  (click)="closeModal()"
+>
+  <img [src]="selectedImage" alt="Focused Dog Image" class="modal-image" />
 </div>

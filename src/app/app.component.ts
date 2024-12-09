@@ -4,6 +4,7 @@ import { PostComponent } from './components/post/post.component';
 import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './components/navigation/navigation.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

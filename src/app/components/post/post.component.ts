@@ -10,28 +10,36 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent {
-  dogImageUrls: string[] = [];  // Store an array of dog image URLs
+  dogImageUrls: string[] = [];
+  selectedImage: string | null = null; // For modal
 
   constructor(private postService: PostService) {}
 
   ngOnInit(): void {
-    this.loadDogImages(); // Load images when component is initialized
+    this.loadDogImages();
   }
 
-  // Method to fetch and append multiple dog images
   loadDogImages(): void {
-    const numberOfImages = 12;  // Number of images to fetch
+    const numberOfImages = 12;
 
-    // Fetch multiple dog images
     for (let i = 0; i < numberOfImages; i++) {
       this.postService.getDogImage().subscribe((data: IDogImage) => {
-        this.dogImageUrls.push(data.message); // Append each new image URL to the array
+        this.dogImageUrls.push(data.message);
       });
     }
   }
 
-  // Method to handle reload button click (append new set of dog images)
   reloadImages(): void {
-    this.loadDogImages(); // Append more dog images without replacing the existing ones
+    this.loadDogImages();
+  }
+
+  // Open modal with selected image
+  viewImage(imageUrl: string): void {
+    this.selectedImage = imageUrl;
+  }
+
+  // Close modal
+  closeModal(): void {
+    this.selectedImage = null;
   }
 }
